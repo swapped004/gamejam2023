@@ -58,13 +58,13 @@ public class playerScript : MonoBehaviour
     }
 
 
-    public void jump()
+    private void jump()
     {
         rb_player.velocity = new Vector2(rb_player.velocity.x, jump_power);
         anim.SetTrigger("jump_trigger");
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // if(collision.gameObject.tag == "ground")
         // {
@@ -72,7 +72,7 @@ public class playerScript : MonoBehaviour
         // }
     }
 
-    public bool isGrounded()
+    private bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .1f, groundLayer);
         return raycastHit.collider != null;

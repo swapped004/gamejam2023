@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 211622158}
   - component: {fileID: 211622157}
   - component: {fileID: 211622156}
+  - component: {fileID: 211622161}
   m_Layer: 7
   m_Name: Wall
   m_TagString: wall
@@ -478,7 +479,7 @@ CompositeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -697,6 +698,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!251 &211622161
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211622154}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &275366869
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +815,7 @@ GameObject:
   - component: {fileID: 308735118}
   - component: {fileID: 308735117}
   - component: {fileID: 308735116}
+  - component: {fileID: 308735121}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: ground
@@ -828,7 +849,7 @@ CompositeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -1339,6 +1360,25 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!251 &308735121
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308735114}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &336617200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,7 +1746,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ef85771a6979540a217a59a1cfe0d9, type: 3}
   m_Name: 

@@ -125,7 +125,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: Punk_idle_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 53
         y: 0
-        width: 48
-        height: 48
+        width: 17
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: Punk_idle_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 100
         y: 0
-        width: 48
-        height: 48
+        width: 18
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: Punk_idle_3
       rect:
         serializedVersion: 2
-        x: 144
+        x: 148
         y: 0
-        width: 48
-        height: 48
+        width: 18
+        height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,6 +196,27 @@ TextureImporter:
       bones: []
       spriteID: 25b6c0711f30ba540b8ee0e5a977bacf
       internalID: 142547833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Punk_idle_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80b79980b4a2c0429d45a7a1c38f614
+      internalID: -1115842580
       vertices: []
       indices: 
       edges: []
@@ -211,6 +232,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Punk_idle_4: -1115842580
       Punk_idle_0: -1928458564
       Punk_idle_3: 142547833
       Punk_idle_1: 1298320402

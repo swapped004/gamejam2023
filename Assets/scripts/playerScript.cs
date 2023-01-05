@@ -18,11 +18,14 @@ public class playerScript : MonoBehaviour
     private Animator anim;
 
 
+    public portalControllerScript portalController;
+
     private int Horizontal_direction;
 
     private void Start()
     {
         Horizontal_direction = 1;
+        portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
         
     }
 
@@ -68,8 +71,13 @@ public class playerScript : MonoBehaviour
 
 
         anim.SetBool("run", x != 0);
-
         anim.SetBool("jump", !isGrounded());
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            portalController.spawnPortal();
+        }
+
     }
 
 
@@ -85,6 +93,15 @@ public class playerScript : MonoBehaviour
         // {
         //     grounded = true;
         // }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "portal")
+        {
+            portalController.teleport();
+        }
+        
     }
 
     private bool isGrounded()

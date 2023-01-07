@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerScript : MonoBehaviour
 {
@@ -16,16 +17,23 @@ public class playerScript : MonoBehaviour
     [SerializeField] private Rigidbody2D rb_player;
     [SerializeField] private BoxCollider2D boxCollider;
     private Animator anim;
+    private bool isAlive = true;
 
 
     public portalControllerScript portalController;
     private float apple_multiplier = 1.4f;
+<<<<<<< HEAD
 
     public int maxHealth = 100;
     public int currentHealth;
 
     public HealthBar healthbar;
 
+=======
+    public GameObject missingMessage;
+    public AudioSource pickSound;
+    public AudioSource jumpSound;
+>>>>>>> ac539858505c614c38b6fef246ba825d3ebdcba3
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
@@ -50,26 +58,26 @@ public class playerScript : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
 
-        
-        rb_player.velocity = new Vector2(x * movement_speed, rb_player.velocity.y);
+        if(isAlive)
+            rb_player.velocity = new Vector2(x * movement_speed, rb_player.velocity.y);
         
         //get the center of the box collider
         Vector3 center = boxCollider.bounds.center;
 
         //flip the player
-        if(x > 0f)
+        if(x > 0f && isAlive)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
             
         }
 
-        else if(x < 0f)
+        else if(x < 0f && isAlive)
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
         }
 
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded() && isAlive)
         {
             jump();
         }
@@ -78,7 +86,7 @@ public class playerScript : MonoBehaviour
         anim.SetBool("run", x != 0);
         anim.SetBool("jump", !isGrounded());
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && isAlive)
         {
             portalController.spawnPortal();
         }
@@ -88,6 +96,7 @@ public class playerScript : MonoBehaviour
 
     private void jump()
     {
+        jumpSound.Play();
         rb_player.velocity = new Vector2(rb_player.velocity.x, jump_power);
         anim.SetTrigger("jump_trigger");
     }
@@ -110,11 +119,12 @@ public class playerScript : MonoBehaviour
         else if(collision.gameObject.tag == "apple")
         {
             //get the apple game object
+            pickSound.Play();
             GameObject apple = collision.gameObject;
             transform.localScale = new Vector3(apple_multiplier * transform.localScale.x , apple_multiplier * transform.localScale.y, transform.localScale.z);
             jump_power = apple_multiplier * jump_power;
             Destroy(apple);
-            
+            Destroy(missingMessage);
         }
         
     }
@@ -139,9 +149,21 @@ public class playerScript : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, 1);
     }
 
+<<<<<<< HEAD
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+=======
+    public void kill_player()
+    {
+        isAlive = false;
+        anim.SetTrigger("death");
+    }
+
+    public void reloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+>>>>>>> ac539858505c614c38b6fef246ba825d3ebdcba3
     }
 }

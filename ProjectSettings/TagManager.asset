@@ -12,6 +12,8 @@ TagManager:
   - wallbreak_trigger
   - flag
   - cherry
+  - Undefined
+  - fireball
   layers:
   - Default
   - TransparentFX
@@ -54,4 +56,7 @@ TagManager:
     locked: 0
   - name: World
     uniqueID: 3705416037
+    locked: 0
+  - name: UI
+    uniqueID: 3650620535
     locked: 0

@@ -21,6 +21,7 @@ public class flagScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            print("Player has entered the flag zone");	
             Debug.Log("Player has entered the flag zone");
         }
     }

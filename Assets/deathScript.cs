@@ -23,7 +23,7 @@ public class deathScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            anim.SetTrigger("death");
+            player.GetComponent<playerScript>().kill_player();
         }
     }
 }

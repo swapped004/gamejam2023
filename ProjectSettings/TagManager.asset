@@ -9,6 +9,8 @@ TagManager:
   - portal
   - portalController
   - apple
+  - wallbreak_trigger
+  - flag
   layers:
   - Default
   - TransparentFX

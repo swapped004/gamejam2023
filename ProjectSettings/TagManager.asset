@@ -11,6 +11,7 @@ TagManager:
   - apple
   - wallbreak_trigger
   - flag
+  - cherry
   layers:
   - Default
   - TransparentFX

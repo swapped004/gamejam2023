@@ -21,11 +21,8 @@ public class playerScript : MonoBehaviour
     public portalControllerScript portalController;
     private float apple_multiplier = 1.4f;
 
-    private int Horizontal_direction;
-
     private void Start()
     {
-        Horizontal_direction = 1;
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
         
     }
@@ -117,7 +114,7 @@ public class playerScript : MonoBehaviour
 
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, .1f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down*transform.localScale.y, .1f, groundLayer);
         return raycastHit.collider != null;
     }
 
@@ -126,5 +123,12 @@ public class playerScript : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x,0), .1f, wallLayer);
         return raycastHit.collider != null;
+    }
+
+
+    public void flipGravity()
+    {
+        rb_player.gravityScale *= -1;
+        transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, 1);
     }
 }

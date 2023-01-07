@@ -18,6 +18,7 @@ public class playerScript : MonoBehaviour
     [SerializeField] private BoxCollider2D boxCollider;
     private Animator anim;
     private bool isAlive = true;
+    private int score = 0;
 
 
     public portalControllerScript portalController;
@@ -27,7 +28,6 @@ public class playerScript : MonoBehaviour
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
-        
     }
 
     private void Awake()
@@ -110,6 +110,7 @@ public class playerScript : MonoBehaviour
             GameObject apple = collision.gameObject;
             transform.localScale = new Vector3(apple_multiplier * transform.localScale.x , apple_multiplier * transform.localScale.y, transform.localScale.z);
             jump_power = apple_multiplier * jump_power;
+            score++;
             Destroy(apple);
             Destroy(missingMessage);
         }
@@ -145,5 +146,10 @@ public class playerScript : MonoBehaviour
     public void reloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public int getScore()
+    {
+        return score;
     }
 }

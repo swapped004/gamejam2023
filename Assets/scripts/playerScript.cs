@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerScript : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class playerScript : MonoBehaviour
     [SerializeField] private Rigidbody2D rb_player;
     [SerializeField] private BoxCollider2D boxCollider;
     private Animator anim;
+    private bool isAlive = true;
 
 
     public portalControllerScript portalController;
@@ -44,26 +46,26 @@ public class playerScript : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
 
-        
-        rb_player.velocity = new Vector2(x * movement_speed, rb_player.velocity.y);
+        if(isAlive)
+            rb_player.velocity = new Vector2(x * movement_speed, rb_player.velocity.y);
         
         //get the center of the box collider
         Vector3 center = boxCollider.bounds.center;
 
         //flip the player
-        if(x > 0f)
+        if(x > 0f && isAlive)
         {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
             
         }
 
-        else if(x < 0f)
+        else if(x < 0f && isAlive)
         {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
         }
 
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded() && isAlive)
         {
             jump();
         }
@@ -72,7 +74,7 @@ public class playerScript : MonoBehaviour
         anim.SetBool("run", x != 0);
         anim.SetBool("jump", !isGrounded());
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && isAlive)
         {
             portalController.spawnPortal();
         }
@@ -132,5 +134,16 @@ public class playerScript : MonoBehaviour
     {
         rb_player.gravityScale *= -1;
         transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, 1);
+    }
+
+    public void kill_player()
+    {
+        isAlive = false;
+        anim.SetTrigger("death");
+    }
+
+    public void reloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

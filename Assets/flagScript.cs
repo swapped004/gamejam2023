@@ -28,8 +28,8 @@ public class flagScript : MonoBehaviour
 
         if (other.gameObject.tag == "Player" && playerScore >= targetScore)
         {
-            print("Player has entered the flag zone");	
-            Debug.Log("Player has entered the flag zone");
+            print("Player has entered the flag zone in level"+SceneManager.GetActiveScene().buildIndex);	
+            Debug.Log("Player has entered the flag zone in level"+SceneManager.GetActiveScene().buildIndex);
 
             //load next level
             print("Loading next level:"+ (SceneManager.GetActiveScene().buildIndex + 1));

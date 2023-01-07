@@ -89,6 +89,10 @@ public class playerScript : MonoBehaviour
             portalController.spawnPortal();
         }
 
+
+        
+
+
     }
 
 
@@ -152,10 +156,18 @@ public class playerScript : MonoBehaviour
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+
+        if(currentHealth <= 0)
+        {
+            isAlive = false;
+            this.kill_player();
+        }
+
     }
     public void kill_player()
     {
         isAlive = false;
+        currentHealth = maxHealth;
         anim.SetTrigger("death");
     }
 

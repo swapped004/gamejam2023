@@ -21,10 +21,17 @@ public class playerScript : MonoBehaviour
     public portalControllerScript portalController;
     private float apple_multiplier = 1.4f;
 
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthbar;
+
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
-        
+
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
     }
 
     private void Awake()
@@ -130,5 +137,11 @@ public class playerScript : MonoBehaviour
     {
         rb_player.gravityScale *= -1;
         transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, 1);
+    }
+
+    public void takeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthbar.SetHealth(currentHealth);
     }
 }

@@ -24,6 +24,7 @@ public class playerScript : MonoBehaviour
     private float apple_multiplier = 1.4f;
     public GameObject missingMessage;
     public AudioSource pickSound;
+    public AudioSource jumpSound;
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
@@ -84,6 +85,7 @@ public class playerScript : MonoBehaviour
 
     private void jump()
     {
+        jumpSound.Play();
         rb_player.velocity = new Vector2(rb_player.velocity.x, jump_power);
         anim.SetTrigger("jump_trigger");
     }

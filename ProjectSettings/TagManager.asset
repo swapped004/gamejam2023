@@ -12,6 +12,8 @@ TagManager:
   - wallbreak_trigger
   - flag
   - cherry
+  - Undefined
+  - fireball
   layers:
   - Default
   - TransparentFX

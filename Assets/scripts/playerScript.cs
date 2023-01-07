@@ -22,7 +22,8 @@ public class playerScript : MonoBehaviour
 
     public portalControllerScript portalController;
     private float apple_multiplier = 1.4f;
-
+    public GameObject missingMessage;
+    public AudioSource pickSound;
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
@@ -105,11 +106,12 @@ public class playerScript : MonoBehaviour
         else if(collision.gameObject.tag == "apple")
         {
             //get the apple game object
+            pickSound.Play();
             GameObject apple = collision.gameObject;
             transform.localScale = new Vector3(apple_multiplier * transform.localScale.x , apple_multiplier * transform.localScale.y, transform.localScale.z);
             jump_power = apple_multiplier * jump_power;
             Destroy(apple);
-            
+            Destroy(missingMessage);
         }
         
     }

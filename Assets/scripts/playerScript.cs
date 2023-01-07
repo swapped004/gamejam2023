@@ -23,11 +23,21 @@ public class playerScript : MonoBehaviour
 
     public portalControllerScript portalController;
     private float apple_multiplier = 1.4f;
+
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthbar;
+
     public GameObject missingMessage;
     public AudioSource pickSound;
+    public AudioSource jumpSound;
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
+
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
     }
 
     private void Awake()
@@ -84,6 +94,7 @@ public class playerScript : MonoBehaviour
 
     private void jump()
     {
+        jumpSound.Play();
         rb_player.velocity = new Vector2(rb_player.velocity.x, jump_power);
         anim.SetTrigger("jump_trigger");
     }
@@ -137,6 +148,11 @@ public class playerScript : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, 1);
     }
 
+    public void takeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthbar.SetHealth(currentHealth);
+    }
     public void kill_player()
     {
         isAlive = false;

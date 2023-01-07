@@ -19,6 +19,7 @@ public class playerScript : MonoBehaviour
 
 
     public portalControllerScript portalController;
+    private float apple_multiplier = 1.4f;
 
     private int Horizontal_direction;
 
@@ -54,13 +55,13 @@ public class playerScript : MonoBehaviour
         //flip the player
         if(x > 0f)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
             
         }
 
         else if(x < 0f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, 1);
         }
 
 
@@ -100,6 +101,16 @@ public class playerScript : MonoBehaviour
         if(collision.gameObject.tag == "portal")
         {
             portalController.teleport();
+        }
+
+        else if(collision.gameObject.tag == "apple")
+        {
+            //get the apple game object
+            GameObject apple = collision.gameObject;
+            transform.localScale = new Vector3(apple_multiplier * transform.localScale.x , apple_multiplier * transform.localScale.y, transform.localScale.z);
+            jump_power = apple_multiplier * jump_power;
+            Destroy(apple);
+            
         }
         
     }

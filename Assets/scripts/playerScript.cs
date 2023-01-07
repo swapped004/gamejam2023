@@ -22,18 +22,15 @@ public class playerScript : MonoBehaviour
 
     public portalControllerScript portalController;
     private float apple_multiplier = 1.4f;
-<<<<<<< HEAD
 
     public int maxHealth = 100;
     public int currentHealth;
 
     public HealthBar healthbar;
 
-=======
     public GameObject missingMessage;
     public AudioSource pickSound;
     public AudioSource jumpSound;
->>>>>>> ac539858505c614c38b6fef246ba825d3ebdcba3
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
@@ -149,12 +146,11 @@ public class playerScript : MonoBehaviour
         transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, 1);
     }
 
-<<<<<<< HEAD
     public void takeDamage(int damage)
     {
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
-=======
+    }
     public void kill_player()
     {
         isAlive = false;
@@ -164,6 +160,5 @@ public class playerScript : MonoBehaviour
     public void reloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
->>>>>>> ac539858505c614c38b6fef246ba825d3ebdcba3
     }
 }

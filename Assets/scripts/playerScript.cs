@@ -34,6 +34,7 @@ public class playerScript : MonoBehaviour
     public AudioSource pickSound;
     public AudioSource jumpSound;
     public AudioSource hurtSound;
+    public AudioSource damageSound;
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
@@ -141,6 +142,12 @@ public class playerScript : MonoBehaviour
             Destroy(apple);
             Destroy(missingMessage);
         }
+
+        else if(collision.gameObject.tag == "cherry")
+        {
+            //get the apple game object
+            playSound(pickSound);
+        }
         
     }
 
@@ -166,11 +173,13 @@ public class playerScript : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+        playSound(damageSound);
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
 
         if(currentHealth <= 0)
-        {
+        {   
+            Debug.Log("player is dead");
             isAlive = false;
             this.kill_player();
         }

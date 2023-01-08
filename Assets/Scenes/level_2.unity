@@ -3852,6 +3852,8 @@ MonoBehaviour:
   portal_2: {fileID: 3234213620091333282, guid: 91f023233221e6743ad337aad583033a, type: 3}
   portal_offset_from_player: 0.2
   minimum_distance_between_portals: 1
+  portalSound: {fileID: 0}
+  portalSound2: {fileID: 0}
 --- !u!4 &413613406
 Transform:
   m_ObjectHideFlags: 0
@@ -5080,7 +5082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 306, y: 142}
+  m_AnchoredPosition: {x: 369, y: 255}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1381199133

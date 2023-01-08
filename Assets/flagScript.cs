@@ -36,7 +36,7 @@ public class flagScript : MonoBehaviour
 
             //load next level
             print("Loading next level:"+ (SceneManager.GetActiveScene().buildIndex + 1));
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            player.GetComponent<playerScript>().getNextScene();
         }
     }
 }

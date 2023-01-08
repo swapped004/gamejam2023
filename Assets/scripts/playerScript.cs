@@ -198,6 +198,14 @@ public class playerScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void getNextScene()
+    {
+        if(SceneManager.GetActiveScene().buildIndex >= 5)
+            SceneManager.LoadScene(2);
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public int getScore()
     {
         return score;

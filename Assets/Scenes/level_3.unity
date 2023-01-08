@@ -649,6 +649,7 @@ MonoBehaviour:
   pickSound: {fileID: 168646189}
   jumpSound: {fileID: 168646190}
   hurtSound: {fileID: 0}
+  damageSound: {fileID: 0}
 --- !u!82 &168646189
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6446,7 +6447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 192.8, y: -82.2}
+  m_AnchoredPosition: {x: 77, y: -33}
   m_SizeDelta: {x: 267.6099, y: 56.3869}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1258700124
@@ -7711,7 +7712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 312.58612, y: 199.60223}
+  m_AnchoredPosition: {x: 342, y: 249}
   m_SizeDelta: {x: 227.1722, y: 40.7955}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2020233349

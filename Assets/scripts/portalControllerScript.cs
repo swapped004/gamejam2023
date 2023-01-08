@@ -18,6 +18,8 @@ public class portalControllerScript : MonoBehaviour
     private Vector3 portal_2_position;
     private GameObject portal_1_instance;
     private GameObject portal_2_instance;
+    public AudioSource portalSound;
+    public AudioSource portalSound2;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class portalControllerScript : MonoBehaviour
             portal_1_instance = Instantiate(portal_1, portal_position, Quaternion.identity);
             portal_1_position = portal_position;
             number_of_portals++;
+            portalSound.Play();
         }
 
         else if(number_of_portals == 1)
@@ -45,6 +48,7 @@ public class portalControllerScript : MonoBehaviour
                 portal_2_instance = Instantiate(portal_2, portal_position, Quaternion.identity);
                 portal_2_position = portal_position;
                 number_of_portals++;
+                portalSound.Play();
             }
 
             else
@@ -68,7 +72,7 @@ public class portalControllerScript : MonoBehaviour
 
             //check which portal is closer to the player
             
-
+           portalSound2.Play();
             if(Vector3.Distance(player.transform.position, portal_1_position) < Vector3.Distance(player.transform.position, portal_2_position))
             {
                 player.transform.position = new Vector3(portal_2_position.x + portal_offset_from_player*player.transform.localScale.x, portal_2_position.y, portal_1_position.z);

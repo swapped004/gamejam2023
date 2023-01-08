@@ -644,6 +644,7 @@ MonoBehaviour:
   missingMessage: {fileID: 0}
   pickSound: {fileID: 168646189}
   jumpSound: {fileID: 168646190}
+  hurtSound: {fileID: 0}
 --- !u!82 &168646189
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5369,7 +5370,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.46186364, g: 0.8540395, b: 0.9150943, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5386,7 +5387,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.97
+  orthographic size: 1.47
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5502,7 +5503,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press here to Restart
+  m_Text: Restart
 --- !u!222 &534061202
 CanvasRenderer:
   m_ObjectHideFlags: 0

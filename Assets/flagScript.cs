@@ -7,6 +7,7 @@ public class flagScript : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private int targetScore;
+    public AudioSource flagSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +24,13 @@ public class flagScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //get the player score
+
         int playerScore = player.GetComponent<playerScript>().getScore();
 
 
         if (other.gameObject.tag == "Player" && playerScore >= targetScore)
         {
+            flagSound.Play();
             print("Player has entered the flag zone in level"+SceneManager.GetActiveScene().buildIndex);	
             Debug.Log("Player has entered the flag zone in level"+SceneManager.GetActiveScene().buildIndex);
 

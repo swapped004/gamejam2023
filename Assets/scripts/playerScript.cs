@@ -19,6 +19,7 @@ public class playerScript : MonoBehaviour
     private Animator anim;
     private bool isAlive = true;
     private int score = 0;
+    private bool powered_up = false;
 
 
     public portalControllerScript portalController;
@@ -32,6 +33,7 @@ public class playerScript : MonoBehaviour
     public GameObject missingMessage;
     public AudioSource pickSound;
     public AudioSource jumpSound;
+    public AudioSource hurtSound;
     private void Start()
     {
         portalController = GameObject.FindGameObjectWithTag("portalController").GetComponent<portalControllerScript>();
@@ -98,7 +100,7 @@ public class playerScript : MonoBehaviour
 
     private void jump()
     {
-        jumpSound.Play();
+        playSound(jumpSound);
         rb_player.velocity = new Vector2(rb_player.velocity.x, jump_power);
         anim.SetTrigger("jump_trigger");
     }
@@ -121,10 +123,20 @@ public class playerScript : MonoBehaviour
         else if(collision.gameObject.tag == "apple")
         {
             //get the apple game object
-            pickSound.Play();
+            playSound(pickSound);
+            // pickSound.Play();
             GameObject apple = collision.gameObject;
-            transform.localScale = new Vector3(apple_multiplier * transform.localScale.x , apple_multiplier * transform.localScale.y, transform.localScale.z);
-            jump_power = apple_multiplier * jump_power;
+
+            
+
+            if(!powered_up)
+            {
+                transform.localScale = new Vector3(apple_multiplier * transform.localScale.x , apple_multiplier * transform.localScale.y, transform.localScale.z);
+                jump_power = apple_multiplier * jump_power;
+            }
+
+            powered_up = true;
+            
             score++;
             Destroy(apple);
             Destroy(missingMessage);
@@ -166,6 +178,7 @@ public class playerScript : MonoBehaviour
     }
     public void kill_player()
     {
+        playSound(hurtSound);
         isAlive = false;
         currentHealth = maxHealth;
         anim.SetTrigger("death");
@@ -179,5 +192,11 @@ public class playerScript : MonoBehaviour
     public int getScore()
     {
         return score;
+    }
+
+
+    public void playSound(AudioSource clip)
+    {
+        clip.Play();
     }
 }

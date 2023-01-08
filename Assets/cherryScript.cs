@@ -5,6 +5,7 @@ using UnityEngine;
 public class cherryScript : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    public AudioSource cherrySound;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,11 @@ public class cherryScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player has entered the cherry zone");
+            //get the player score
+            player.GetComponent<playerScript>().playSound(cherrySound);
            
+            Debug.Log("Player has entered the cherry zone");
+            
             // Flip gravity
             player.GetComponent<playerScript>().flipGravity();
              // Destroy the cherry
